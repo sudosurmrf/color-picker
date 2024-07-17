@@ -1,10 +1,11 @@
 // Write your Color component here
 import { useState } from 'react';
 
-const Color = ({ color, setSelectedColor }) => {
-  return <div className = {color} 
+const Color = ({ color, setSelectedColor, selectedColor }) => {
+  return <div className = {color === selectedColor ? `${color} selected` : color} 
   onClick={() => {
     setSelectedColor(color)
+    
   }}>
     
   </div>
@@ -18,10 +19,11 @@ const Picker = () => {
         <div>Currently selected: </div>
         <div className={selectedColor}>{selectedColor}</div>
       </div>
+        
         <div id="colors-list">
-          <Color color='green' setSelectedColor={setSelectedColor}/>
-          <Color color='orange'setSelectedColor={setSelectedColor}/>
-          <Color color='violet'setSelectedColor={setSelectedColor}/>
+          <Color color='green' setSelectedColor={setSelectedColor} selectedColor={selectedColor}/>
+          <Color color='orange'setSelectedColor={setSelectedColor} selectedColor={selectedColor}/>
+          <Color color='violet'setSelectedColor={setSelectedColor} selectedColor={selectedColor}/>
         </div>
     </div>
   );
